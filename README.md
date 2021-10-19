@@ -8,6 +8,7 @@
 - Flask-migrate
 - Flask-WTF
 - Flask-Login
+- email-validator
 
 ### Flask-SQLAlchemy Configuration
 - Development: SQLite
