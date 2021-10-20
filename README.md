@@ -1,7 +1,10 @@
-## Flask Blog Application
+## Flask Posts Blog Application
 ### Features
 - User registration
+- Password recovery by Email
 - Followers
+- Automatic Error notification by Email to the admin
+- Unit testing
 
 ### Extensions
 - Flask-SQLAlchemy
@@ -9,6 +12,7 @@
 - Flask-WTF
 - Flask-Login
 - email-validator
+- Flask-Mail
 
 ### Flask-SQLAlchemy Configuration
 - Development: SQLite
