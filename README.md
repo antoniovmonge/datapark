@@ -13,8 +13,12 @@
 - Flask-Login
 - email-validator
 - Flask-Mail
+- Flask-Moment
 
 ### Flask-SQLAlchemy Configuration
 - Development: SQLite
+
+### Frontend
+- HTML, CSS, Bootstrap 4.1.3
 
 **Security best practices:** *password hashes*

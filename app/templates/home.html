@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="content-section">
-        <p>Hi, {{ current_user.username }}!</p>
-        <hr>
-        <div class="row">
-            <table>
-                <tr vertical-align='middle'>
-                    <td width="175px" class="align-middle">
-                        <img class="mx-auto d-block" src="{{ current_user.avatar(120) }}">
-                    </td>
-                    <td>
-                        <div class="p-2 w-100">
-                            {% if form %}
+    {% if form %}
+        <div class="content-section">
+            <p>Hi, {{ current_user.username }}!</p>
+            <hr>
+            <div class="row">
+                <table>
+                    <tr vertical-align='middle'>
+                        <td width="175px" class="align-middle">
+                            <img class="mx-auto d-block" src="{{ current_user.avatar(120) }}">
+                        </td>
+                        <td>
+                            <div class="p-2 w-100">
                                 <form action="" method='post'>
                                     {{ form.hidden_tag() }}
                                     <fieldset class='form-group'>
@@ -25,14 +25,14 @@
                                     </fieldset>
                                     <p>{{ form.submit(class='btn btn-outline-info') }}</p>
                                 </form>
-                            {% endif %}
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
         </div>
-    </div>
+    {% endif %}
     <div class="content-section">
         {% for post in posts %}
             {% include '_post.html' %}
