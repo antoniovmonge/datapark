@@ -1,28 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ title }}</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=32) }}
-            {% for error in form.email.errors %}
-            <span style='color: red;'>[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }} <br>
-            {{ form.password(size=32) }}
-            {% for error in form.password.errors %}
-            <span style='color: red;'>[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p> 
-        <p>{{ form.submit() }}</p> 
-    </form>
-    <p>New User? <a href="{{ url_for('register') }}">Click to Register</a></p>
-    <p>
-        Forgot Your Password?
+    <div class="content-section">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <fieldset class='form-group'>
+                <legend class='border-bottom mb-4'>Sign In</legend>
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=32) }}
+                    {% for error in form.email.errors %}
+                        <span style='color: red;'>[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }} <br>
+                    {{ form.password(size=32) }}
+                    {% for error in form.password.errors %}
+                        <span style='color: red;'>[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p> 
+            </fieldset>
+            <div>{{ form.submit(class='btn btn-outline-info') }}</div> 
+        </form>
+    </div>
+    <div class='border-top pt-3'>
+        <small class='text-muted'>
+            New User? <a href="{{ url_for('register') }}">Click to Register</a>
+        </small><br>
+        <small class='text-muted'>
+            Forgot Your Password?
         <a href="{{ url_for('reset_password_request') }}">Click to Reset it</a>
-    </p>
+        </small>
+    </div>
 {% endblock content %}
