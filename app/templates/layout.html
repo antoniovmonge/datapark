@@ -19,7 +19,9 @@
         <title>Welcome to MegaBlog</title>
         {% endif %}
         
+        <!-- Time with Flask Moment -->
         {{ moment.include_moment() }}
+        {{ moment.locale('en-gb') }}
         
     </head>
     <body>

@@ -33,11 +33,11 @@
             </div>
         </div>
     {% endif %}
-    <div class="content-section">
-        {% for post in posts %}
+    {% for post in posts %}
+        <article class="content-section">
             {% include '_post.html' %}
-        {% endfor %}
-    </div>
+        </article>
+    {% endfor %}
     <!-- pagination -->
     <nav aria-label="...">
         <ul class="pagination">
