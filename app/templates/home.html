@@ -1,43 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% if form %}
-        <div class="content-section">
-            <p>Hi, {{ current_user.username }}!</p>
-            <hr>
-            <div class="row">
-                <table>
-                    <tr vertical-align='middle'>
-                        <td width="175px" class="align-middle">
-                            <img class="mx-auto d-block" src="{{ current_user.avatar(120) }}">
-                        </td>
-                        <td>
-                            <div class="p-2 w-100">
-                                <form action="" method='post'>
-                                    {{ form.hidden_tag() }}
-                                    <fieldset class='form-group'>
-                                        {{ form.post.label }}<br>
-                                        {{ form.post() }}<br>
-                                        {% if form.post.errors %}
-                                            {% for error in form.post.errors %}
-                                                <span style="color: red;">[{{ error }}]</span>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </fieldset>
-                                    <p>{{ form.submit(class='btn btn-outline-info') }}</p>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                
+    <div>
+
+        {% if form %}
+            <div class="content-section">
+                <p>Hi, {{ current_user.username }}!</p>
             </div>
-        </div>
-    {% endif %}
-    {% for post in posts %}
-        <article class="content-section">
-            {% include '_post.html' %}
-        </article>
-    {% endfor %}
+        {% endif %}
+        {% for post in posts %}
+            <article class="content-section">
+                {% include '_post.html' %}
+            </article>
+        {% endfor %}
+    </div>
     <!-- pagination -->
     <nav aria-label="...">
         <ul class="pagination">

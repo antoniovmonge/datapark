@@ -9,7 +9,13 @@
             </a>
             wrote {{ moment(post.timestamp).fromNow() }}:
             <br>
-            {{ post.body | safe }}
+            <div>
+                {% if post.body_html %}
+                    {{ post.body_html | safe }}
+                {% else %}
+                    {{ post.body }}
+                {% endif %}
+            </div>
         </td>
     </tr>
 </table>

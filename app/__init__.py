@@ -7,6 +7,7 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_mail import Mail
 from flask_moment import Moment
+from flask_pagedown import PageDown
 from config import Config
 
 app = Flask(__name__)
@@ -17,6 +18,7 @@ login = LoginManager(app)
 login.login_view = 'login'
 mail = Mail(app)
 moment = Moment(app)
+pagedown = PageDown(app)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:

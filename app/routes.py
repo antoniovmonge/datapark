@@ -12,13 +12,6 @@ from app.email import send_password_reset_email
 @app.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
-    form = PostForm()
-    if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
-        db.session.add(post)
-        db.session.commit()
-        flash('Your post is now live!')
-        return redirect(url_for('home'))
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_posts().paginate(
         page, app.config['POSTS_PER_PAGE'], False)
@@ -26,9 +19,23 @@ def home():
         if posts.has_next else None
     prev_url = url_for('home', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('home.html', title='Home Page', form=form,
-                            posts=posts.items, next_url=next_url,
+    return render_template('home.html', posts=posts.items, title='Home Page', next_url=next_url,
                             prev_url=prev_url)
+
+@app.route('/post/new', methods=['GET', 'POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('home'))
+    return render_template('new_post.html', title='New Post',
+                            form=form, legend='New Post')
+
+
 
 @app.route('/explore')
 @login_required
