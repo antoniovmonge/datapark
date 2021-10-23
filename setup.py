@@ -6,12 +6,12 @@ with open('requirements.txt') as f:
 requirements = [x.strip() for x in content if 'git+' not in x]
 
 setup(name='megablog',
-      version="1.0",
-      description="Project Description",
-      packages=find_packages(),
-      install_requires=requirements,
-      test_suite='tests',
-      # include_package_data: to install data from MANIFEST.in
-      include_package_data=True,
-      scripts=['scripts/megablog-run'],
-      zip_safe=False)
+        version="1.0",
+        description="Project Description",
+        packages=find_packages(),
+        install_requires=requirements,
+        test_suite='tests',
+        # include_package_data: to install data from MANIFEST.in
+        include_package_data=True,
+        scripts=['scripts/megablog-run'],
+        zip_safe=False)

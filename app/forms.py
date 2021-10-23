@@ -50,7 +50,7 @@ class EmptyForm(FlaskForm):
 class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     body = PageDownField('Say something', validators=[
-        DataRequired(), Length(min=1, max=340)])
+        DataRequired(), Length(min=1, max=450)])
     submit = SubmitField('Submit')
 
 class ResetPasswordRequestForm(FlaskForm):
