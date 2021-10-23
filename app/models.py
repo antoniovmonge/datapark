@@ -80,6 +80,7 @@ class User(UserMixin, db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
     body = db.Column(db.String(140))
     body_html = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
@@ -95,7 +96,7 @@ class Post(db.Model):
         tags=allowed_tags, strip=True))
 
     def __repr__(self):
-        return f"<Post {self.body}>"
+        return f"<Post('{self.title}' , '{self.body}')>"
 
 db.event.listen(Post.body, 'set', Post.on_changed_body)
 

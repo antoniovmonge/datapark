@@ -6,18 +6,31 @@
         <fieldset class='form-group'>
             <legend class='border-bottom mb-4'>{{ legend }}</legend>
             <div class='form-group'>
-                {{ form.post.label(class='form-control-label') }}
-                {% if form.post.errors %}
-                    {{ form.post(class='form-control form-control-lg is-invalid') }}
+                {{ form.title.label(class='form-control-label') }}
+                {% if form.title.errors %}
+                    {{ form.title(class='form-control form-control-lg is-invalid') }}
                     <div class='invalid-feedback'>
-                        {% for error in form.post.errors %}
+                        {% for error in form.title.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.post(class='form-control form-control-lg', rows=10) }}
+                    {{ form.title(class='form-control form-control-lg') }}
+                {% endif %}
+            </div>
+            <div class='form-group'>
+                {{ form.body.label(class='form-control-label') }}
+                {% if form.body.errors %}
+                    {{ form.body(class='form-control form-control-lg is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.body.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.body(class='form-control form-control-lg', rows=10) }}
                     <br>
-                    {{ form.post(only_preview=True)}}
+                    {{ form.body(only_preview=True)}}
                 {% endif %}
             </div>
         </fieldset>

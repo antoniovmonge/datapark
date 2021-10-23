@@ -44,12 +44,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #5f5f5f;
 }
 
-a.sidebar-title:hover {
-    color: #444444;
-    font-weight: 500;
-    text-decoration: none;
-}
-
 .article-title {
     color: #444444;
 }
@@ -66,13 +60,13 @@ a.article-title:hover {
 .article-img {
     height: 65px;
     width: 65px;
-    margin-right: 16px;
+    margin-right: 20px;
+    margin-top: 7px;
 }
 
 .article-metadata {
     padding-bottom: 1px;
     margin-bottom: 4px;
-    border-bottom: 1px solid #e3e3e3
 }
 
 .article-metadata a:hover {
@@ -87,10 +81,9 @@ a.article-title:hover {
 }
 
 .account-img {
-    height: 125px;
     width: 125px;
     margin-right: 20px;
-    margin-bottom: 16px;
+    margin-top: 16px;
 }
 
 .account-heading {
