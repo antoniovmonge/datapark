@@ -15,7 +15,9 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.post(class='form-control form-control-lg') }}
+                    {{ form.post(class='form-control form-control-lg', rows=10) }}
+                    <br>
+                    {{ form.post(only_preview=True)}}
                 {% endif %}
             </div>
         </fieldset>

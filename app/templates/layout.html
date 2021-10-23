@@ -54,12 +54,7 @@
         </header>
         <main role='main' class='container'>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="content-section">
-                        <p>Here it comes info from the user</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                                 {% for message in messages %}
@@ -69,7 +64,10 @@
                     {% endwith %}
                     {% block content %}{% endblock content %}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
+                    <div class="content-section">
+                        <p>Here it comes info from the user</p>
+                    </div>
                     <div class="content-section">
                         <h3>Topics</h3>
                         <br>
