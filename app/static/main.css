@@ -53,9 +53,9 @@ a.article-title:hover {
     text-decoration: none;
 }
 
-.article-content {
-    /* white-space: pre-line; */
-}
+/* .article-content {
+    white-space: pre-line;
+} */
 
 .article-img {
     height: 65px;
