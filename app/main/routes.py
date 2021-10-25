@@ -3,16 +3,16 @@ from flask import render_template, flash, redirect, url_for, request, current_ap
 from flask_login import current_user, login_required
 from app import db
 from app.main import bp
-from app.main.forms import EditProfileForm, EmptyForm, PostForm
+from app.main.forms import EditProfileForm, EmptyForm
 from app.models import User, Post
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/home', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def home():
     page = request.args.get('page', 1, type=int)
-    posts = current_user.followed_posts().paginate(
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('main.home', page=posts.next_num) \
         if posts.has_next else None
@@ -21,24 +21,11 @@ def home():
     return render_template('home.html', posts=posts.items, title='Home Page', next_url=next_url,
                             prev_url=prev_url)
 
-@bp.route('/post/new', methods=['GET', 'POST'])
-@login_required
-def new_post():
-    form = PostForm()
-    if form.validate_on_submit():
-        post = Post(title=form.title.data, body=form.body.data, author=current_user)
-        db.session.add(post)
-        db.session.commit()
-        flash('Your post is now live!')
-        return redirect(url_for('main.home'))
-    return render_template('new_post.html', title='New Post',
-                            form=form, legend='New Post')
-
-@bp.route('/explore')
+@bp.route('/collection')
 @login_required
 def explore():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+    posts = current_user.followed_posts().paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('main.explore', page=posts.next_num) \
         if posts.has_next else None
@@ -49,7 +36,7 @@ def explore():
 
 
 @bp.route('/user/<username>')
-@login_required
+# @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     page = request.args.get('page', 1, type=int)

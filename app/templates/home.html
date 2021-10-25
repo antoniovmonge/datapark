@@ -7,12 +7,13 @@
         {% if posts %}
             {% for post in posts %}
                 <article class="content-section">
-                    {% include '_post.html' %}
+                    {% include 'posts/_post.html' %}
                 </article>
             {% endfor %}
         {% else %}
         <div class="content-section">
-            <p>Start following people to populate your timeline 😇</p>
+            <p>Start following users or create your posts to populate your timeline 😇</p>
+            <a class="text-mutted" href="{{ url_for('main.home') }}">All Posts</a>
         </div>
         {% endif %}
     </div>
