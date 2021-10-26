@@ -1,1 +1,1 @@
-web: flask commit -m 'changes in db'; flask db upgrade; gunicorn "microblog:app"
+web: flask db upgrade; gunicorn "microblog:app"
