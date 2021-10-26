@@ -12,11 +12,33 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
         
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        
+        <!-- Primary Meta Tags -->
+        <title>Data Park — The Python and Data Science community</title>
+        <meta name="title" content="Data Park — The Python Professional Network">
+        <meta name="description" content="All about Python and Data.">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://datapark.herokuapp.com/">
+        <meta property="og:title" content="Data Park — The Python Professional Network">
+        <meta property="og:description" content="All about Python and Data.">
+        <meta property="og:image" content="../static/data-park-big.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://datapark.herokuapp.com/">
+        <meta property="twitter:title" content="Data Park — The Python Professional Network">
+        <meta property="twitter:description" content="All about Python and Data.">
+        <meta property="twitter:image" content="../static/data-park-big.png">
+
         <!-- Title -->
         {% if title %}
-        <title>{{ title }} - MegaBlog</title>
+        <title>DataPark | {{ title }}</title>
         {% else %}
-        <title>Welcome to MegaBlog</title>
+        <title>Welcome to DataPark</title>
         {% endif %}
         
         <!-- Time with Flask Moment -->
@@ -31,14 +53,17 @@
             <!-- Navigation -->
             <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url_for('main.home') }}">MegaBlog</a>
+                    <a class="navbar-brand mr-4" href="{{ url_for('main.home') }}">
+                        <img src="../static/dp.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                        DataPark
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
                                 <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home </a>
-                                <a class="nav-item nav-link" href="{{ url_for('main.explore') }}">Collection</a>
+                                <a class="nav-item nav-link" href="{{ url_for('main.explore') }}">Feed</a>
                         </div>
                         <div class='navbar-nav ms-auto'>
                             {% if current_user.is_anonymous %}
