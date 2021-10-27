@@ -91,9 +91,11 @@
                     {% block content %}{% endblock content %}
                 </div>
                 <div class="col-md-4">
-                    <div class="content-section">
-                        <p>Here it comes info from the user</p>
-                    </div>
+                    {% if current_user.is_authenticated %}
+                        <div class="content-section">
+                            <p></p>
+                        </div>
+                    {% endif %}
                     <div class="content-section">
                         <h3>Topics</h3>
                         <br>

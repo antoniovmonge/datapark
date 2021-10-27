@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .article-title {
-    color: #444444;
+    color: #444444d0;
 }
 
 a.article-title:hover {
