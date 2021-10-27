@@ -16,7 +16,6 @@
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         
         <!-- Primary Meta Tags -->
-        <title>Data Park — The Python and Data Science community</title>
         <meta name="title" content="Data Park — The Python Professional Network">
         <meta name="description" content="All about Python and Data.">
 
@@ -71,7 +70,7 @@
                                 <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
                             {% else %}
                                 <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>
-                                <a class="nav-item nav-link" href="{{ url_for('main.user', username=current_user.username) }}">Profile</a>
+                                <a class="nav-item nav-link" href="{{ url_for('users.user', username=current_user.username) }}">Profile</a>
                                 <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                             {% endif %}
                         </div>
@@ -99,13 +98,13 @@
                         <h3>Topics</h3>
                         <br>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">Python</a>
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">SQL</a>
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">Data Analysis</a>
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">Machine Learning</a>
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">Data Science</a>
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">Web Development</a>
-                            <a href="#" class="list-group-item list-group-item-action list-group-item-light">more...</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">Python</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">SQL</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">Data Analysis</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">Machine Learning</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">Data Science</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">Web Development</a>
+                            <a href="{{ url_for('main.coming_soon') }}" class="list-group-item list-group-item-action list-group-item-light">more...</a>
                         </div>
                         <br>
                     </div>

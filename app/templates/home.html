@@ -8,17 +8,7 @@
         {% endif %}
         {% if posts %}
             {% for post in posts.items %}
-                <article class="media content-section">
-                    <img class="rounded-circle article-img" src="{{ post.author.avatar(64) }}">
-                    <div class="media-body">
-                        <div class="article-metadata">
-                            <a class="mr-2h" ref="{{ url_for('main.user', username=post.author.username) }}">{{ post.author.username }}</a>
-                            <small class="text-muted">{{ moment(post.timestamp).fromNow() }}</small>
-                        </div>
-                        <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-                        <p class='article-content'>{{ post.body_html | safe | truncate(75, true) }}</p>
-                    </div>
-                </article>
+                {% include 'posts/_post_preview.html' %}
             {% endfor %}
         {% else %}
         <div class="content-section">
