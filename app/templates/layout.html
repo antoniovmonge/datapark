@@ -33,6 +33,9 @@
         <meta property="twitter:description" content="All about Python and Data.">
         <meta property="twitter:image" content="{{ url_for('static', filename='data-park-big.svg') }}">
 
+        <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/65e3d93b99.js" crossorigin="anonymous"></script>
+
         <!-- Title -->
         {% if title %}
         <title>DataPark | {{ title }}</title>
@@ -113,6 +116,17 @@
                 </div>
             </div>
         </main>
+        <div>
+            <footer class="page-footer font-small fixed-bottom">
+                <div class="container-fluid text-center">
+                    <div>
+                        <a class="item-social" href="https://github.com/antoniovmonge"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="copyright">antoniovmonge © 2021</p>
+                    <br>
+                </div>
+            </footer>
+        </div>
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

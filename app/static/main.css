@@ -90,3 +90,15 @@ a.article-title:hover {
     font-size: 2.5rem;
 }
 
+.item-social {
+    color: rgb(56, 56, 56);
+    text-decoration:none;
+    font-size:2rem;
+    opacity:0.8;
+}
+
+.item-social:hover {
+    opacity:1;
+    color: rgb(56, 56, 56);
+    text-decoration:none;
+}
