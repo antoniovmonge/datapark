@@ -95,9 +95,9 @@
                 <div class="col-md-8">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
-                                {% for message in messages %}
-                                <div class="alert alert-primary" role="alert">{{ message }}</div>
-                                {% endfor %}
+                            {% for message in messages %}
+                            <div class="alert alert-primary" role="alert">{{ message }}</div>
+                            {% endfor %}
                         {% endif %}
                     {% endwith %}
                     {% block content %}{% endblock content %}
@@ -148,12 +148,29 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <!-- extra javascript -->
         <script>
-            // ...
             function set_message_count(n) {
                 $('#message_count').text(n);
                 $('#message_count').css('visibility', n ? 'visible' : 'hidden');
             }
         </script>
+        {% if current_user.is_authenticated %}
+            <script>
+                $(function() {
+                    var since = 0;
+                    setInterval(function() {
+                        $.ajax("{{ url_for('messages.notifications') }}?since=" + since).done(
+                            function(notifications) {
+                                for (var i = 0; i < notifications.length; i++) {
+                                    if (notifications[i].name == 'unread_message_count')
+                                        set_message_count(notifications[i].data);
+                                    since = notifications[i].timestamp;
+                                }
+                            }
+                        );
+                    }, 10000);
+                });
+            </script>
+        {% endif %}
         
     </body>
 </html>

@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 from time import time
 import jwt
@@ -37,7 +38,8 @@ class User(UserMixin, db.Model):
                                         foreign_keys='Message.recipient_id',
                                         backref='recipient', lazy='dynamic')
     last_message_read_time = db.Column(db.DateTime)
-
+    notifications = db.relationship('Notification', backref='user',
+                                    lazy='dynamic')
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -81,6 +83,12 @@ class User(UserMixin, db.Model):
         return Message.query.filter_by(recipient=self).filter(
             Message.timestamp > last_read_time).count()
 
+    def add_notification(self, name, data):
+        self.notifications.filter_by(name=name).delete()
+        n = Notification(name=name, payload_json=json.dumps(data), user=self)
+        db.session.add(n)
+        return n
+
     @staticmethod
     def verify_reset_password_token(token):
         try:
@@ -89,7 +97,6 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
-
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -127,4 +134,13 @@ class Message(db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
+class Notification(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(128), index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.Float, index=True, default=time)
+    payload_json = db.Column(db.Text)
+
+    def get_data(self):
+        return json.loads(str(self.payload_json))
 
