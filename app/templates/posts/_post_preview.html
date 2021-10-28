@@ -6,6 +6,6 @@
             <small class="text-muted">{{ moment(post.timestamp).fromNow() }}</small>
         </div>
         <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-        <p class='article-content'>{{ post.body_html | safe | truncate(75, true) }}</p>
+        <p class='article-content'>{{ post.body_html | safe | truncate(100, true) }}</p>
     </div>
 </article>

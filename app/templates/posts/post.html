@@ -9,6 +9,7 @@
         </div>
         {% if post.title %}
             <h3><a class='article-title' href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h3>
+            <br>
         {% endif %}
         <div class="article-content">
             {% if post.body_html %}
@@ -18,9 +19,9 @@
             {% endif %}
         </div>
         {% if post.author == current_user %}
-            <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
-                <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            <div class='text-right'>
+                <a class="btn btn-outline-info btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
+                <button type="button" class="btn btn-outline-danger btn-sm m-1 mr-3 " data-toggle="modal" data-target="#deleteModal">Delete</button>
             </div>
         {% endif %}
     </div>
