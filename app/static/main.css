@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-section {
     background: #ffffff;
-    padding: 10px 20px;
+    padding: 4%;
     border: 1px solid #dddddd;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -53,9 +53,11 @@ a.article-title:hover {
     text-decoration: none;
 }
 
-/* .article-content {
-    white-space: pre-line;
-} */
+.article-content {
+    /* white-space: pre-line; */
+    margin-left:3%;
+    margin-right: 3%;
+}
 
 .article-img {
     height: 65px;
@@ -81,9 +83,9 @@ a.article-title:hover {
 }
 
 .account-img {
-    width: 125px;
-    margin-right: 20px;
-    margin-top: 16px;
+    width: 20%;
+    margin-right: 5%;
+    margin-top: 2%;
 }
 
 .account-heading {
