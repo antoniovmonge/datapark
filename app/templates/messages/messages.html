@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Messages</h1>
+        {% for msg in messages %}
+            <article class="media content-section">
+                <img class="rounded-circle article-img"  src="{{ msg.author.avatar(64) }}">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2h" href="{{ url_for('users.user', username=msg.author.username) }}">{{ msg.author.username }}</a>
+                        <small class="text-muted">{{ moment(msg.timestamp).fromNow() }}</small>
+                    </div>
+                    <p class='article-content'>{{ msg.body }}</p>
+                </div>
+            </article>
+        {% endfor %}
+{% endblock content %}
