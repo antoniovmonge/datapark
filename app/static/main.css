@@ -55,15 +55,14 @@ a.article-title:hover {
 
 .article-content {
     /* white-space: pre-line; */
-    margin-left:3%;
+    margin-left: 3%;
     margin-right: 3%;
 }
 
 .article-img {
-    height: 65px;
-    width: 65px;
-    margin-right: 20px;
-    margin-top: 7px;
+    width: 10%;
+    margin-right: 3%;
+    margin-top: 1%;
 }
 
 .article-metadata {

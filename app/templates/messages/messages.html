@@ -9,7 +9,7 @@
                         <a class="mr-2h" href="{{ url_for('users.user', username=msg.author.username) }}">{{ msg.author.username }}</a>
                         <small class="text-muted">{{ moment(msg.timestamp).fromNow() }}</small>
                     </div>
-                    <p class='article-content'>{{ msg.body }}</p>
+                    <p>{{ msg.body }}</p>
                 </div>
             </article>
         {% endfor %}

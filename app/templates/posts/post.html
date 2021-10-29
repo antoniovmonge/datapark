@@ -2,19 +2,21 @@
 {% block content %}
 <div class="content-section">
     <article class='article-content'>
+        <h2><a class='article-title' href="{{ url_for('main.home') }}">{{ post.title }}</a></h2>
+        <br>
         <div class="media">
-            <img class="rounded-circle article-img" src="{{ post.author.avatar(64) }}">
+            <img class="mr-3" src="{{ post.author.avatar(32) }}">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="{{ url_for('users.user', username=post.author.username) }}">{{ post.author.username }}</a>
+                    <small class="text-muted">Post created by
+                        <a class="mr-2" href="{{ url_for('users.user', username=post.author.username) }}">{{ post.author.username }}</a>
+                        
+                    </small>
                     <small class="text-muted">{{ moment(post.timestamp).fromNow() }}</small>
                 </div>
-                {% if post.title %}
-                    <h2><a class='article-title' href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
-                    <br>
-                {% endif %}
             </div>
         </div>
+        <br>
         <div>
             {% if post.body_html %}
                 {{ post.body_html | safe }}
